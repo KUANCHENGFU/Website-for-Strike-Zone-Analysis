@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="w-50 px-5 py-2 container">
+    <form method=post action="/" enctype=multipart/form-data>
+        {% for field in form %}
+          <div class="mb-3 row">
+            {{ field.label(class_="form-label col-sm-4") }}
+              <div class="col-sm-8">
+                {{ field(class_="form-select form-control-sm") }}
+              </div>
+          </div>
+          {% if field.errors %}
+              <ul class=errors>
+                {% for error in field.errors %}
+                  <li><font color="red">{{ error }}</font></li>
+                {% endfor %}
+              </ul>
+          {% endif %}
+        {% endfor %}
+      <div class="mt-2">
+        <input type="submit" value="Submit" class="btn btn-primary float-end">
+      </div>
+    </form>
+  </div>
+
+  {% if result != None %}
+    <div id="result-img">
+      <img src="data:image/png;base64,{{ result[0] }}">
+      <img src="data:image/png;base64,{{ result[1] }}">
+    </div>
+  {% endif %}
+{% endblock %}

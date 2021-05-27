@@ -1,0 +1,16 @@
+body {
+  margin-top: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#result-img {
+  margin-top: 80px;
+  margin-left: -100px;
+  margin-right: -100px;
+  text-align: center;
+}
+
+#result-img img {
+  vertical-align: top;
+}
