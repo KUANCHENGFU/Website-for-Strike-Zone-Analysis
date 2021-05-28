@@ -20,7 +20,7 @@ from flask import current_app as app
 def strike_zone_heatmaps(umpire, strikes, balls, outs, b_side, p_side):
 
     # baysian optimization
-    def bayes_tuning(X, y, params, init_round=5, opt_round=5, random_state=42):
+    def bayes_tuning(X, y, params, init_round=10, opt_round=10, random_state=42):
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -120,7 +120,7 @@ def strike_zone_heatmaps(umpire, strikes, balls, outs, b_side, p_side):
     fig1, axes = plt.subplots(ncols=2, figsize=(8, 4))
     for z, ax, title in zip(results, axes, ['LightGBM Model 1', 'LightGBM Model 2']):
         lc = mc.LineCollection(lines, linewidths=2.5, colors='k')
-        smoothing_z = gaussian_filter(z, sigma=1.2)
+        smoothing_z = gaussian_filter(z, sigma=1.3)
         im = ax.imshow(smoothing_z, extent=[-2.5, 2.5, 0, 5], origin='lower', cmap='jet')
         ax.add_collection(lc)
         ax.axis('scaled')
