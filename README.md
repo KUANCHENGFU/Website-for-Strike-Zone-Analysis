@@ -10,7 +10,7 @@ In this project, a framework is first proposed to classify whether a given pitch
 5. Probability calibration (Platt scaling and isotonic regression)
 
 
-## Link to the Project
+## Link to the Proposed Framework 
 1. https://nbviewer.jupyter.org/github/KUANCHENGFU/Website-for-Strike-Zone-Analysis/blob/main/source/Called_strike_probability.ipynb
 
 &nbsp;
